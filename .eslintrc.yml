@@ -1,23 +1,21 @@
 plugins:
   # https://github.com/babel/eslint-plugin-babel
   - babel
+  # https://github.com/jest-community/eslint-plugin-jest
   - jest
 
 # https://eslint.org/docs/user-guide/configuring#specifying-environments
 env:
   node: true
-  jest/globals: true
+  jest: true
 
 # https://github.com/babel/babel-eslint
 parser: babel-eslint
 
 extends:
   - 'airbnb-base'
+  - 'plugin:jest/recommended'
 
 rules:
-  no-console: off
-  jest/no-disabled-tests: warn
-  jest/no-focused-tests: error
-  jest/no-identical-title: error
-  jest/prefer-to-have-length: warn
-  jest/valid-expect: error
+  no-console: 0
+  

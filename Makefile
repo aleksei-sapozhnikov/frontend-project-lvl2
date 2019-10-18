@@ -1,6 +1,9 @@
 lint:
 	npx eslint .
 
+test:
+	npx jest
+
 install:
 	npm install
 

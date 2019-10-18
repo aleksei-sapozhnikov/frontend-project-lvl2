@@ -13,15 +13,15 @@ const getMutualKeys = (obj1, obj2) => Object.keys(obj1).reduce(
   [],
 );
 
-const removedToString = (key, obj) => `- ${key}: ${obj[key]}`;
+const removedToString = (key, obj) => `  - ${key}: ${obj[key]}`;
 
-const addedToString = (key, obj) => `+ ${key}: ${obj[key]}`;
+const addedToString = (key, obj) => `  + ${key}: ${obj[key]}`;
 
 const mutualToString = (key, obj1, obj2) => (obj1[key] === obj2[key]
-  ? `  ${key}: ${obj1[key]}`
+  ? `    ${key}: ${obj1[key]}`
   : [
-    `+ ${key}: ${obj2[key]}`,
-    `- ${key}: ${obj1[key]}`,
+    `  + ${key}: ${obj2[key]}`,
+    `  - ${key}: ${obj1[key]}`,
   ]);
 
 const arrayToStringDeep = (array, delimiter = '\n') => _.flattenDeep(array).join(delimiter);

@@ -4,26 +4,21 @@ import jsonDiff from '../src/diff';
 
 const buildFixturePath = (partialPath) => path.join(__dirname, '__fixtures__', partialPath);
 
+const pathBeforeJson = buildFixturePath('1_before.json');
+const pathAfterJson = buildFixturePath('1_after.json');
+const pathBeforeYaml = buildFixturePath('1_before.yml');
+const pathAfterYaml = buildFixturePath('1_after.yml');
+const pathDiff = buildFixturePath('1_diff');
+const diff = fs.readFileSync(pathDiff, 'utf8');
+
 test('basic work json', () => {
-  const pathBefore = buildFixturePath('1_before.json');
-  const pathAfter = buildFixturePath('1_after.json');
-  const pathDiff = buildFixturePath('1_diff');
-  const diff = fs.readFileSync(pathDiff, 'utf8');
-  expect(jsonDiff(pathBefore, pathAfter)).toEqual(diff);
+  expect(jsonDiff(pathBeforeJson, pathAfterJson)).toEqual(diff);
 });
 
 test('basic work yaml', () => {
-  const pathBefore = buildFixturePath('1_before.yml');
-  const pathAfter = buildFixturePath('1_after.yml');
-  const pathDiff = buildFixturePath('1_diff');
-  const diff = fs.readFileSync(pathDiff, 'utf8');
-  expect(jsonDiff(pathBefore, pathAfter)).toEqual(diff);
+  expect(jsonDiff(pathBeforeYaml, pathAfterYaml)).toEqual(diff);
 });
 
 test('json and yaml', () => {
-  const pathBefore = buildFixturePath('1_before.json');
-  const pathAfter = buildFixturePath('1_after.yml');
-  const pathDiff = buildFixturePath('1_diff');
-  const diff = fs.readFileSync(pathDiff, 'utf8');
-  expect(jsonDiff(pathBefore, pathAfter)).toEqual(diff);
+  expect(jsonDiff(pathBeforeJson, pathAfterYaml)).toEqual(diff);
 });

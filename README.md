@@ -8,6 +8,14 @@
 
 [![asciicast](https://asciinema.org/a/C5dNLIydUXMTvoNB66VqJaoQy.svg)](https://asciinema.org/a/C5dNLIydUXMTvoNB66VqJaoQy)
 
-## JSON diff
+## Compare JSON
 
 [![asciicast](https://asciinema.org/a/GtBNL9FUWGo7A9QC4NVo1ybtf.svg)](https://asciinema.org/a/GtBNL9FUWGo7A9QC4NVo1ybtf)
+
+## Compare YAML
+
+[![asciicast](https://asciinema.org/a/SWFJ6zmulriXwFUdYePhzyBBc.svg)](https://asciinema.org/a/SWFJ6zmulriXwFUdYePhzyBBc)
+
+## Compare JSON and YAML
+
+[![asciicast](https://asciinema.org/a/lJP8fC0d8BK9kIgP95wLIm41f.svg)](https://asciinema.org/a/lJP8fC0d8BK9kIgP95wLIm41f)

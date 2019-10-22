@@ -16,6 +16,10 @@
 
 [![asciicast](https://asciinema.org/a/SWFJ6zmulriXwFUdYePhzyBBc.svg)](https://asciinema.org/a/SWFJ6zmulriXwFUdYePhzyBBc)
 
+## Compare INI
+
+[![asciicast](https://asciinema.org/a/cs5uwZ3Jm8zSYFwIxWLcNmW5Q.svg)](https://asciinema.org/a/cs5uwZ3Jm8zSYFwIxWLcNmW5Q)
+
 ## Compare JSON and YAML
 
 [![asciicast](https://asciinema.org/a/lJP8fC0d8BK9kIgP95wLIm41f.svg)](https://asciinema.org/a/lJP8fC0d8BK9kIgP95wLIm41f)

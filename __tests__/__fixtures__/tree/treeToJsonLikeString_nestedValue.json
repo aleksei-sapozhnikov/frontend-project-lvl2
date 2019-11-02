@@ -1,0 +1,18 @@
+{
+    "tree": [
+        {
+            "type": "unchanged",
+            "key": "one",
+            "value": null,
+            "children": [
+                {
+                    "type": "added",
+                    "key": "two",
+                    "value": 2,
+                    "children": []
+                }
+            ]
+        }
+    ],
+    "expected": "{\n    one: {\n      + two: 2\n    }\n}"
+}

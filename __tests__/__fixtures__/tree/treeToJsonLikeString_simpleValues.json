@@ -1,0 +1,23 @@
+{
+    "tree": [
+        {
+            "key": "one",
+            "type": "added",
+            "value": 1,
+            "children": []
+        },
+        {
+            "key": "two",
+            "type": "removed",
+            "value": 2,
+            "children": []
+        },
+        {
+            "key": "three",
+            "type": "unchanged",
+            "value": 3,
+            "children": []
+        }
+    ],
+    "expected": "{\n  + one: 1\n  - two: 2\n    three: 3\n}"
+}

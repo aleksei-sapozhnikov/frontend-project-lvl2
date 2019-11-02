@@ -1,0 +1,22 @@
+{
+    "objBefore": {
+        "one": 1
+    },
+    "objAfter": {
+        "one": 2
+    },
+    "expected": [
+        {
+            "key": "one",
+            "type": "added",
+            "value": 2,
+            "children": []
+        },
+        {
+            "key": "one",
+            "type": "removed",
+            "value": 1,
+            "children": []
+        }
+    ]
+}

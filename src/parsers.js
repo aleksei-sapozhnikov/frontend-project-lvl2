@@ -1,7 +1,9 @@
 import jsYaml from 'js-yaml';
 import ini from 'ini';
 
-const parsersList = [
+export const noop = () => {};
+
+const parsers = [
   {
     fileExt: '.json',
     parse: (strJson) => JSON.parse(strJson),
@@ -16,6 +18,4 @@ const parsersList = [
   },
 ];
 
-export default {
-  getByFileExt: (fileExt) => parsersList.find((p) => p.fileExt === fileExt),
-};
+export const getByFileExt = (fileExt) => parsers.find((p) => p.fileExt === fileExt);

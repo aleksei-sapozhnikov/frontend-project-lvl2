@@ -1,23 +1,16 @@
 import path from 'path';
-import fs from 'fs';
+import { loadSource } from '../src/utils';
 import { buildTree } from '../src/tree';
 
-const pathToTreeFixture = (fileName) => path.join(__dirname, '__fixtures__', 'tree', fileName);
-
-const loadSource = (fileName) => {
-  const filePath = pathToTreeFixture(fileName);
-  const title = path.basename(filePath, '.json');
-  const source = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  return [title, source];
-};
+const getFixturePath = (fileName) => path.join(__dirname, '__fixtures__', 'tree', fileName);
 
 const objectsToTreeSources = [
-  loadSource('objectsToTree_sameKeyWithChangedValue.json'),
-  loadSource('objectsToTree_keyChanged.json'),
-  loadSource('objectsToTree_equalWithNestedValue.json'),
-  loadSource('objectsToTree_nestedValueChanged.json'),
-  loadSource('objectsToTree_nestedKeysAddedAndRemoved.json'),
-  loadSource('objectsToTree_fullComplexTest.json'),
+  loadSource(getFixturePath('objectsToTree_sameKeyWithChangedValue.json')),
+  loadSource(getFixturePath('objectsToTree_keyChanged.json')),
+  loadSource(getFixturePath('objectsToTree_equalWithNestedValue.json')),
+  loadSource(getFixturePath('objectsToTree_nestedValueChanged.json')),
+  loadSource(getFixturePath('objectsToTree_nestedKeysAddedAndRemoved.json')),
+  loadSource(getFixturePath('objectsToTree_fullComplexTest.json')),
 ];
 
 test.each(objectsToTreeSources)('%s', (title, source) => {

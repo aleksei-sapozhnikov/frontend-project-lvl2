@@ -12,7 +12,7 @@ test.each([
   ['ini_before.ini', 'ini_after.ini'],
   ['json_before.json', 'yaml_after.yml'],
   ['json_before.json', 'ini_after.ini'],
-])(' diff complex (%s, %s)',
+])(' diff (%s, %s)',
   (before, after) => {
     const pathBefore = pathToDiffFixture(before);
     const pathAfter = pathToDiffFixture(after);

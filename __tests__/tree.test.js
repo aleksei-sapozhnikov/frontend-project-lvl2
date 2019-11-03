@@ -4,19 +4,22 @@ import { buildTree } from '../src/tree';
 
 const pathToTreeFixture = (fileName) => path.join(__dirname, '__fixtures__', 'tree', fileName);
 
-const createSource = (name) => [
-  name,
-  JSON.parse(fs.readFileSync(pathToTreeFixture(`${name}.json`), 'utf8')),
-];
+const loadSource = (fileName) => {
+  const filePath = pathToTreeFixture(fileName);
+  const title = path.basename(filePath, '.json');
+  const source = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  return [title, source];
+};
 
 const objectsToTreeSources = [
-  createSource('objectsToTree_sameKeyWithChangedValue'),
-  createSource('objectsToTree_keyChanged'),
-  createSource('objectsToTree_equalWithNestedValue'),
-  createSource('objectsToTree_nestedValueChanged'),
-  createSource('objectsToTree_nestedKeysAddedAndRemoved'),
-  createSource('objectsToTree_fullComplexTest'),
+  loadSource('objectsToTree_sameKeyWithChangedValue.json'),
+  loadSource('objectsToTree_keyChanged.json'),
+  loadSource('objectsToTree_equalWithNestedValue.json'),
+  loadSource('objectsToTree_nestedValueChanged.json'),
+  loadSource('objectsToTree_nestedKeysAddedAndRemoved.json'),
+  loadSource('objectsToTree_fullComplexTest.json'),
 ];
+
 test.each(objectsToTreeSources)('%s', (title, source) => {
   const result = buildTree(source.objBefore, source.objAfter);
   expect(result).toEqual(source.expected);

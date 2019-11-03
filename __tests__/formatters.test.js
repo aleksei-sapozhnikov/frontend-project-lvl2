@@ -1,21 +1,22 @@
 import path from 'path';
 import fs from 'fs';
-import { formatterByType } from '../src/formatters';
+import { stringifyTree } from '../src/formatters/jsonLikeString';
 
 const pathToFormattersFixture = (fileName) => path.join(__dirname, '__fixtures__', 'formatters', fileName);
 
-const createSource = (name) => [
-  name,
-  JSON.parse(fs.readFileSync(pathToFormattersFixture(`${name}.json`), 'utf8')),
-];
+const loadSource = (fileName) => {
+  const filePath = pathToFormattersFixture(fileName);
+  const title = path.basename(filePath, '.json');
+  const source = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+  return [title, source];
+};
 
 const testTreeToJsonLikeStringSources = [
-  createSource('treeToJsonLikeString_simpleValues'),
-  createSource('treeToJsonLikeString_nestedValue'),
-  createSource('treeToJsonLikeString_fullComplexTest'),
+  loadSource('treeToJsonLikeString_simpleValues.json'),
+  loadSource('treeToJsonLikeString_nestedValue.json'),
+  loadSource('treeToJsonLikeString_fullComplexTest.json'),
 ];
 test.each(testTreeToJsonLikeStringSources)('%s', (title, source) => {
-  const formatter = formatterByType('jsonLikeString');
-  const result = formatter.format(source.tree);
+  const result = stringifyTree(source.tree);
   expect(result).toEqual(source.expected);
 });

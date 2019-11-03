@@ -1,5 +1,5 @@
-import fs from 'fs';
 import path from 'path';
+import fs from 'fs';
 import diff from '../src/diff';
 
 const pathToDiffFixture = (fileName) => path.join(__dirname, '__fixtures__', 'diff', fileName);
@@ -7,11 +7,11 @@ const pathToDiffFixture = (fileName) => path.join(__dirname, '__fixtures__', 'di
 const diffValue = fs.readFileSync(pathToDiffFixture('diffValue'), 'utf8');
 
 test.each([
-  ['before.json', 'after.json'],
-  // ['before.yml', 'after.yml'],
-  // ['before.ini', 'after.ini'],
-  // ['before.json', 'after.yml'],
-  // ['before.json', 'after.ini'],
+  ['json_before.json', 'json_after.json'],
+  ['yaml_before.yml', 'yaml_after.yml'],
+  ['ini_before.ini', 'ini_after.ini'],
+  ['json_before.json', 'yaml_after.yml'],
+  ['json_before.json', 'ini_after.ini'],
 ])(' diff complex (%s, %s)',
   (before, after) => {
     const pathBefore = pathToDiffFixture(before);

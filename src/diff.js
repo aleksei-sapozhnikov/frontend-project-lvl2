@@ -1,12 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 
-import { getByFileExt } from './parsers';
-import { buildTree, toJsonString } from './tree';
+import { parserByFileExt } from './parsers';
+import { buildTree } from './tree';
+import { formatterByType } from './formatters';
 
 const readObject = (filepath) => {
   const fileExt = path.extname(filepath);
-  const parser = getByFileExt(fileExt);
+  const parser = parserByFileExt(fileExt);
   const data = fs.readFileSync(filepath, 'utf8');
   return parser.parse(data);
 };
@@ -19,5 +20,6 @@ const buildTreeFromFiles = (file1, file2) => {
 
 export default (file1, file2) => {
   const tree = buildTreeFromFiles(file1, file2);
-  return toJsonString(tree);
+  const formatter = formatterByType('jsonLikeString');
+  return formatter.format(tree);
 };

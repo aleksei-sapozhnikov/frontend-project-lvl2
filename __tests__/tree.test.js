@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { buildTree, toJsonString } from '../src/tree';
+import { buildTree } from '../src/tree';
 
 const pathToTreeFixture = (fileName) => path.join(__dirname, '__fixtures__', 'tree', fileName);
 
@@ -19,15 +19,5 @@ const objectsToTreeSources = [
 ];
 test.each(objectsToTreeSources)('%s', (title, source) => {
   const result = buildTree(source.objBefore, source.objAfter);
-  expect(result).toEqual(source.expected);
-});
-
-const testTreeToJsonLikeStringSources = [
-  createSource('treeToJsonLikeString_simpleValues'),
-  createSource('treeToJsonLikeString_nestedValue'),
-  createSource('treeToJsonLikeString_fullComplexTest'),
-];
-test.each(testTreeToJsonLikeStringSources)('%s', (title, source) => {
-  const result = toJsonString(source.tree);
   expect(result).toEqual(source.expected);
 });

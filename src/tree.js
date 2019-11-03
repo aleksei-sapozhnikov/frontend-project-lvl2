@@ -1,5 +1,7 @@
 import _ from 'lodash';
 
+export const noop = () => {};
+
 const nodeComparator = (a, b) => {
   const first = a.key.toString().localeCompare(b.key.toString());
   return first !== 0 ? first : a.type.toString().localeCompare(b.type.toString());
@@ -104,36 +106,3 @@ export const buildTree = (objBefore, objAfter) => makeNodes(
   objAfter,
   makeNodeMappers(objBefore, objAfter),
 );
-
-const mapTypeToJsonLikeSign = {
-  added: '+',
-  removed: '-',
-  unchanged: ' ',
-};
-
-const valueToJsonLikeString = (value, depth) => {
-  if (!_.isObject(value)) {
-    return value;
-  }
-  return [
-    '{',
-    Object.keys(value)
-      .map((key) => `${'    '.repeat(depth + 2)}${key}: ${value[key]}`)
-      .join('\n'),
-    `${'    '.repeat(depth + 1)}}`,
-  ].join('\n');
-};
-
-export const toJsonString = (tree) => {
-  const nodeListToString = (node, depth = 0) => [
-    '{',
-    node.map((n) => {
-      const value = n.children.length === 0
-        ? valueToJsonLikeString(n.value, depth)
-        : nodeListToString(n.children, depth + 1);
-      return `  ${'    '.repeat(depth)}${mapTypeToJsonLikeSign[n.type]} ${n.key}: ${value}`;
-    }).join('\n'),
-    `${'    '.repeat(depth)}}`,
-  ].join('\n');
-  return nodeListToString(tree);
-};

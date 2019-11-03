@@ -18,4 +18,4 @@ const parsers = [
   },
 ];
 
-export const getByFileExt = (fileExt) => parsers.find((p) => p.fileExt === fileExt);
+export const parserByFileExt = (fileExt) => parsers.find((p) => p.fileExt === fileExt);

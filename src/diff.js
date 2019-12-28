@@ -23,7 +23,6 @@ export default (file1, file2, format) => {
   const tree = buildTreeFromFiles(file1, file2);
   switch (format) {
     case 'plain': return toPlain(tree);
-    case 'json':
     default: return toJsonLikeString(tree);
   }
 };

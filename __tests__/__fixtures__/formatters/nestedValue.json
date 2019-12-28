@@ -14,5 +14,6 @@
             ]
         }
     ],
-    "expected": "{\n    one: {\n      + two: 2\n    }\n}"
+    "toJsonLikeString": "{\n    one: {\n      + two: 2\n    }\n}",
+    "toPlainText": "Property 'one.two' was added with value: 2"
 }

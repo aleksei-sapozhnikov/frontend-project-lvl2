@@ -3,7 +3,7 @@
         {
             "key": "one",
             "type": "added",
-            "value": 1,
+            "value": "hello",
             "children": []
         },
         {
@@ -19,5 +19,6 @@
             "children": []
         }
     ],
-    "expected": "{\n  + one: 1\n  - two: 2\n    three: 3\n}"
+    "toJsonLikeString": "{\n  + one: hello\n  - two: 2\n    three: 3\n}",
+    "toPlainText": "Property 'one' was added with value: 'hello'\nProperty 'two' was removed"
 }

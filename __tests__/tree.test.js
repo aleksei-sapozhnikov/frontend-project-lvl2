@@ -4,16 +4,16 @@ import { buildTree } from '../src/tree';
 
 const getFixturePath = (fileName) => path.join(__dirname, '__fixtures__', 'tree', fileName);
 
-const objectsToTreeSources = [
-  loadSource(getFixturePath('objectsToTree_sameKeyWithChangedValue.json')),
-  loadSource(getFixturePath('objectsToTree_keyChanged.json')),
-  loadSource(getFixturePath('objectsToTree_equalWithNestedValue.json')),
-  loadSource(getFixturePath('objectsToTree_nestedValueChanged.json')),
-  loadSource(getFixturePath('objectsToTree_nestedKeysAddedAndRemoved.json')),
-  loadSource(getFixturePath('objectsToTree_fullComplexTest.json')),
+const sources = [
+  loadSource(getFixturePath('sameKeyWithChangedValue.json')),
+  loadSource(getFixturePath('keyChanged.json')),
+  loadSource(getFixturePath('equalWithNestedValue.json')),
+  loadSource(getFixturePath('nestedValueChanged.json')),
+  loadSource(getFixturePath('nestedKeysAddedAndRemoved.json')),
+  loadSource(getFixturePath('fullComplexTest.json')),
 ];
 
-test.each(objectsToTreeSources)('%s', (title, source) => {
+test.each(sources)('%s', (title, source) => {
   const result = buildTree(source.objBefore, source.objAfter);
   expect(result).toEqual(source.expected);
 });

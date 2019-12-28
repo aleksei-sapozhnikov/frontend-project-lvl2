@@ -4,8 +4,8 @@ import diff from '../src/diff';
 
 const pathToDiffFixture = (fileName) => path.join(__dirname, '__fixtures__', 'diff', fileName);
 
-const diffJsonLikeString = fs.readFileSync(pathToDiffFixture('diffJsonLikeString'), 'utf8');
-const diffPlainText = fs.readFileSync(pathToDiffFixture('diffPlainText'), 'utf8');
+const diffJsonLikeString = fs.readFileSync(pathToDiffFixture('diffJson'), 'utf8');
+const diffPlainText = fs.readFileSync(pathToDiffFixture('diffPlain'), 'utf8');
 
 test.each([
   ['json_before.json', 'json_after.json'],

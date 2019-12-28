@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 export const noop = () => {};
 
-const getNodeFullName = (node, listParents = []) => listParents.map((n) => n.key).concat(node.key).join('.');
+const getNodeFullName = (node, listParents) => listParents.map((n) => n.key).concat(node.key).join('.');
 
 const getNodeValue = (node) => {
   const { value } = node;
@@ -57,13 +57,11 @@ const stringifyListNodes = (listNodes, listParents = []) => {
     const nodes = listNodes.filter(((node) => node.key === key));
 
     const formatters = getNodeFormatters(nodes);
-
     const strNodes = formatters.length > 0
       ? acc.concat(...formatters.map((formatter) => formatter.format(nodes, listParents)))
       : acc;
 
     const newListParents = listParents.concat(nodes[0]);
-
     const strChildren = nodes.length === 1
       ? stringifyListNodes(nodes[0].children, newListParents)
       : [];

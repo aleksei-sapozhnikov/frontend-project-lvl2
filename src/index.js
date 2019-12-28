@@ -18,9 +18,6 @@ export const run = () => {
     .option('-f, --format [type]', 'Output format')
     .parse(process.argv);
 
-  if (program.format === 'plain') {
-    console.log(diff(before, after, 'plain'));
-  } else {
-    console.log(diff(before, after));
-  }
+  const format = program.format || 'json';
+  console.log(diff(before, after, format));
 };

@@ -3,7 +3,8 @@ import path from 'path';
 
 import { parserByFileExt } from './parsers';
 import { buildTree } from './tree';
-import { stringifyTree } from './formatters/jsonLikeString';
+import { stringifyTree as toJsonLikeString } from './formatters/jsonLikeString';
+import { stringifyTree as toPlain } from './formatters/plain';
 
 const readObject = (filepath) => {
   const fileExt = path.extname(filepath);
@@ -18,7 +19,11 @@ const buildTreeFromFiles = (file1, file2) => {
   return buildTree(obj1, obj2);
 };
 
-export default (file1, file2) => {
+export default (file1, file2, format) => {
   const tree = buildTreeFromFiles(file1, file2);
-  return stringifyTree(tree);
+  switch (format) {
+    case 'plain': return toPlain(tree);
+    case 'json':
+    default: return toJsonLikeString(tree);
+  }
 };

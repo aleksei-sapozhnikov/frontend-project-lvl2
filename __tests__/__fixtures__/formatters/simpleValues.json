@@ -19,6 +19,7 @@
             "children": []
         }
     ],
-    "toJsonLikeString": "{\n  + one: hello\n  - two: 2\n    three: 3\n}",
-    "toPlainText": "Property 'one' was added with value: 'hello'\nProperty 'two' was removed"
+    "jsonLike": "{\n  + one: hello\n  - two: 2\n    three: 3\n}",
+    "plain": "Property 'one' was added with value: 'hello'\nProperty 'two' was removed",
+    "json": "[{\"key\":\"one\",\"type\":\"added\",\"value\":\"hello\",\"children\":[]},{\"key\":\"two\",\"type\":\"removed\",\"value\":2,\"children\":[]},{\"key\":\"three\",\"type\":\"unchanged\",\"value\":3,\"children\":[]}]"
 }

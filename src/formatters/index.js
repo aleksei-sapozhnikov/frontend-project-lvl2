@@ -1,17 +1,28 @@
-import { stringifyTree as toJsonLike } from './json';
-import { stringifyTree as toPlainText } from './plain';
+import { stringifyTree as toJsonLike } from './jsonLike';
+import { stringifyTree as toPlain } from './plain';
+import { stringifyTree as toJson } from './json';
 
 export const noop = () => {};
 
+export const types = {
+  jsonLike: 'jsonLike',
+  plain: 'plain',
+  json: 'json',
+};
+
 const formatters = [
   {
-    check: (type) => type === 'json',
-    formatter: toJsonLike,
+    check: (type) => type === types.jsonLike,
+    format: toJsonLike,
   },
   {
-    check: (type) => type === 'plain',
-    formatter: toPlainText,
+    check: (type) => type === types.plain,
+    format: toPlain,
+  },
+  {
+    check: (type) => type === types.json,
+    format: toJson,
   },
 ];
 
-export const getFormatter = (type) => formatters.find((f) => f.check(type)).formatter;
+export const getFormatter = (type) => formatters.find((f) => f.check(type));

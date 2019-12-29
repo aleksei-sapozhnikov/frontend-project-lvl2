@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import { getParser } from './parsers';
 import { buildTree } from './tree';
+import { getParser } from './parsers';
 import { getFormatter } from './formatters';
 
 const readObject = (filepath) => {
@@ -20,5 +20,5 @@ const buildTreeFromFiles = (file1, file2) => {
 
 export default (file1, file2, format) => {
   const tree = buildTreeFromFiles(file1, file2);
-  return getFormatter(format)(tree);
+  return getFormatter(format).format(tree);
 };

@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import jsYaml from 'js-yaml';
 import ini from 'ini';
 
@@ -7,6 +8,7 @@ const parsers = [
   {
     fileExt: '.json',
     parse: (strJson) => JSON.parse(strJson),
+
   },
   {
     fileExt: '.yml',
@@ -14,7 +16,18 @@ const parsers = [
   },
   {
     fileExt: '.ini',
-    parse: (strIni) => ini.parse(strIni),
+    parse: (strIni) => {
+      const mapNumbers = (obj) => _.mapValues(obj, (v) => {
+        if (_.isObject(v)) {
+          return mapNumbers(v);
+        }
+
+        return typeof v !== 'boolean' && !Number.isNaN(Number(v)) ? Number(v) : v;
+      });
+
+      const parsedObj = ini.parse(strIni);
+      return mapNumbers(parsedObj);
+    },
   },
 ];
 

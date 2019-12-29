@@ -1,7 +1,6 @@
 import path from 'path';
 import { loadSource } from '../src/utils';
-import { stringifyTree as toJsonLike } from '../src/formatters/json';
-import { stringifyTree as toPlain } from '../src/formatters/plain';
+import { getFormatter } from '../src/formatters';
 
 const getFixturePath = (fileName) => path.join(__dirname, '__fixtures__', 'formatters', fileName);
 
@@ -12,6 +11,7 @@ const sources = [
 ];
 
 test.each(sources)('%s', (title, source) => {
-  expect(toJsonLike(source.tree)).toEqual(source.toJsonLikeString);
-  expect(toPlain(source.tree)).toEqual(source.toPlainText);
+  expect(getFormatter('jsonLike').format(source.tree)).toEqual(source.jsonLike);
+  expect(getFormatter('plain').format(source.tree)).toEqual(source.plain);
+  expect(getFormatter('json').format(source.tree)).toEqual(source.json);
 });

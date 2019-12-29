@@ -14,6 +14,7 @@
             ]
         }
     ],
-    "toJsonLikeString": "{\n    one: {\n      + two: 2\n    }\n}",
-    "toPlainText": "Property 'one.two' was added with value: 2"
+    "jsonLike": "{\n    one: {\n      + two: 2\n    }\n}",
+    "plain": "Property 'one.two' was added with value: 2",
+    "json": "[{\"type\":\"unchanged\",\"key\":\"one\",\"value\":null,\"children\":[{\"type\":\"added\",\"key\":\"two\",\"value\":2,\"children\":[]}]}]"
 }

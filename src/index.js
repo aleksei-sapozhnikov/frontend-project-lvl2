@@ -1,5 +1,6 @@
 import program from 'commander';
 import diff from './diff';
+import { types as formatterTypes } from './formatters';
 
 export default diff;
 
@@ -15,9 +16,8 @@ export const run = () => {
       before = firstConfig;
       after = secondConfig;
     })
-    .option('-f, --format [type]', 'Output format')
+    .option('-f, --format [type]', 'Output format', formatterTypes.jsonLike)
     .parse(process.argv);
 
-  const format = program.format || 'json';
-  console.log(diff(before, after, format));
+  console.log(diff(before, after, program.format));
 };

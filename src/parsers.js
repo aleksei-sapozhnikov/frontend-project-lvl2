@@ -4,6 +4,14 @@ import ini from 'ini';
 
 export const noop = () => {};
 
+const mapObjectNumberStringsToNumbers = (obj) => _.mapValues(obj, (v) => {
+  if (_.isObject(v)) {
+    return mapObjectNumberStringsToNumbers(v);
+  }
+
+  return typeof v !== 'boolean' && !Number.isNaN(Number(v)) ? Number(v) : v;
+});
+
 const parsers = [
   {
     fileExt: '.json',
@@ -16,18 +24,7 @@ const parsers = [
   },
   {
     fileExt: '.ini',
-    parse: (strIni) => {
-      const mapNumbers = (obj) => _.mapValues(obj, (v) => {
-        if (_.isObject(v)) {
-          return mapNumbers(v);
-        }
-
-        return typeof v !== 'boolean' && !Number.isNaN(Number(v)) ? Number(v) : v;
-      });
-
-      const parsedObj = ini.parse(strIni);
-      return mapNumbers(parsedObj);
-    },
+    parse: (strIni) => mapObjectNumberStringsToNumbers(ini.parse(strIni)),
   },
 ];
 

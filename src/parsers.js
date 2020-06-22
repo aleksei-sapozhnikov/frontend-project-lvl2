@@ -4,26 +4,13 @@ import ini from 'ini';
 
 export const noop = () => {};
 
-const mapObjectNumberStringsToNumbers = (obj) => {
-  const mappingFunction = (value) => {
-    if (_.isObject(value)) {
-      return mapObjectNumberStringsToNumbers(value);
-    }
+const mapObjectNumberStringsToNumbers = (obj) => _.mapValues(obj, (value) => {
+  if (_.isObject(value)) {
+    return mapObjectNumberStringsToNumbers(value);
+  }
 
-    if (typeof value === 'boolean') {
-      return value;
-    }
-
-    const valueAsNumber = Number(value);
-    if (Number.isNaN(valueAsNumber)) {
-      return value;
-    }
-
-    return valueAsNumber;
-  };
-
-  return _.mapValues(obj, mappingFunction);
-};
+  return !Number.isNaN(Number(value)) && typeof value !== 'boolean' ? Number(value) : value;
+});
 
 const parsers = [
   {

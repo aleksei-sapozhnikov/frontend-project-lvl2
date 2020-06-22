@@ -1,6 +1,6 @@
-import { stringifyTree as toJsonLike } from './jsonLike';
-import { stringifyTree as toPlain } from './plain';
-import { stringifyTree as toJson } from './json';
+import { stringifyTree as toJsonLike } from './jsonLike.js';
+import { stringifyTree as toPlain } from './plain.js';
+import { stringifyTree as toJson } from './json.js';
 
 export const noop = () => {};
 

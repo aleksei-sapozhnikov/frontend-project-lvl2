@@ -1,7 +1,13 @@
 import { test, expect } from '@jest/globals';
 import path from 'path';
-import { loadSource } from '../src/utils';
-import { buildTree } from '../src/tree';
+import { fileURLToPath } from 'url';
+import { loadSource } from '../src/utils.js';
+import { buildTree } from '../src/tree.js';
+
+/* eslint-disable */
+const __filename = fileURLToPath(import.meta.url); 
+const __dirname = path.dirname(__filename);
+/* eslint-enable */
 
 const getFixturePath = (fileName) => path.join(__dirname, '__fixtures__', 'tree', fileName);
 

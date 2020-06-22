@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import { buildTree } from './tree';
-import { getParser } from './parsers';
-import { getFormatter } from './formatters';
+import { buildTree } from './tree.js';
+import { getParser } from './parsers.js';
+import { getFormatter } from './formatters/index.js';
 
 const readObject = (filepath) => {
   const fileExt = path.extname(filepath);

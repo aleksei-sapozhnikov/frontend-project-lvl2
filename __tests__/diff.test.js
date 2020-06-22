@@ -1,8 +1,15 @@
+/* eslint-disable */
 import { test, expect } from '@jest/globals';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import fs from 'fs';
 import diff from '../src/diff';
 import { types as formatterTypes } from '../src/formatters';
+
+/* eslint-disable */
+const __filename = fileURLToPath(import.meta.url); 
+const __dirname = path.dirname(__filename);
+/* eslint-enable */
 
 const getFixturePath = (fileName) => path.join(__dirname, '__fixtures__', 'diff', fileName);
 

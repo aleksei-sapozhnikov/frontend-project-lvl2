@@ -1,6 +1,6 @@
 import program from 'commander';
-import diff from './src/diff';
-import { types as formatterTypes } from './src/formatters';
+import diff from './src/diff.js';
+import { types as formatterTypes } from './src/formatters/index.js';
 
 export default diff;
 

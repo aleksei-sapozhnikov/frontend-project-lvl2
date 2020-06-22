@@ -23,3 +23,15 @@
 ## Compare JSON and YAML
 
 [![asciicast](https://asciinema.org/a/lJP8fC0d8BK9kIgP95wLIm41f.svg)](https://asciinema.org/a/lJP8fC0d8BK9kIgP95wLIm41f)
+
+## Format: JSON-like
+
+[![asciicast](https://asciinema.org/a/341943.svg)](https://asciinema.org/a/341943)
+
+## Format: plain
+
+[![asciicast](https://asciinema.org/a/uqwYwjgokklZGgnFjhovjndFc.svg)](https://asciinema.org/a/uqwYwjgokklZGgnFjhovjndFc)
+
+## Format: JSON
+
+[![asciicast](https://asciinema.org/a/kWMqhwpcg6FsylyGlLjMgKUbQ.svg)](https://asciinema.org/a/kWMqhwpcg6FsylyGlLjMgKUbQ)

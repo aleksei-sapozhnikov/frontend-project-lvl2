@@ -26,7 +26,7 @@
 
 ## Format: JSON-like
 
-[![asciicast](https://asciinema.org/a/341943.svg)](https://asciinema.org/a/341943)
+[![asciicast](https://asciinema.org/a/ye4AXCWFjN8pwTzDr4lDnvmRx.svg)](https://asciinema.org/a/ye4AXCWFjN8pwTzDr4lDnvmRx)
 
 ## Format: plain
 

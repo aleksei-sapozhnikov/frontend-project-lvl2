@@ -24,7 +24,10 @@ const parsers = [
   },
   {
     fileExt: '.ini',
-    parse: (strIni) => mapObjectNumberStringsToNumbers(ini.parse(strIni)),
+    parse: (strIni) => {
+      const objWithNumberStrings = ini.parse(strIni);
+      return mapObjectNumberStringsToNumbers(objWithNumberStrings);
+    },
   },
 ];
 

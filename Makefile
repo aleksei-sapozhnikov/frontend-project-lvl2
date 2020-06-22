@@ -1,15 +1,16 @@
-install:
-	npm install
+install: install-deps
 
 run:
-	npx babel-node src/bin/gendiff.js
+	bin/gendiff.js
 
-build:
-	rm -rf dist
-	npm run build
+install-deps:
+	npm ci
 
 test:
-	npx jest --coverage
+	npm test
+
+test-coverage:
+	npm test -- --coverage --coverageProvider=v8
 
 lint:
 	npx eslint .

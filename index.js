@@ -1,6 +1,6 @@
 import program from 'commander';
-import diff from './diff';
-import { types as formatterTypes } from './formatters';
+import diff from './src/diff';
+import { types as formatterTypes } from './src/formatters';
 
 export default diff;
 

@@ -1,3 +1,4 @@
+import { test, expect } from '@jest/globals';
 import path from 'path';
 import { loadSource } from '../src/utils';
 import { buildTree } from '../src/tree';
